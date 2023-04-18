@@ -9,13 +9,27 @@ import SwiftUI
 
 struct ContentView: View {
     var body: some View {
-        VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundColor(.accentColor)
-            Text("Hello, world!")
+        ZStack(alignment: .center) {
+            RoundedRectangle(cornerRadius: 25)
+                .stroke(lineWidth: 7)
+            RoundedRectangle(cornerRadius: 25)
+                .fill(Gradient(stops: [
+                    Gradient.Stop(color: .pink, location: 0.1),
+                    Gradient.Stop(color: .blue, location: 0.45),
+                    Gradient.Stop(color: .purple, location: 0.9),
+                ]))
+            VStack(alignment: .center) {
+                Image(systemName: "globe")
+                    .padding(.bottom, 3.0)
+                    .imageScale(.large)
+                    .foregroundColor(.white)
+                Text("Hello, PlaybookSwift!")
+                    .font(.title3)
+                    .fontWeight(.semibold)
+                    .foregroundColor(.white)
+            }
         }
-        .padding()
+        .padding(.all, 30)
     }
 }
 
