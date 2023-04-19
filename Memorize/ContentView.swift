@@ -8,28 +8,18 @@
 import SwiftUI
 
 struct ContentView: View {
+    var icons: [String] = [
+        "🤷‍♂️", "🥺", "🐞", "🌎", "🎙️", "✅", "📅", "🥒"
+    ]
     var body: some View {
-        ZStack(alignment: .center) {
-            RoundedRectangle(cornerRadius: 25)
-                .stroke(lineWidth: 7)
-            RoundedRectangle(cornerRadius: 25)
-                .fill(Gradient(stops: [
-                    Gradient.Stop(color: .pink, location: 0.1),
-                    Gradient.Stop(color: .blue, location: 0.45),
-                    Gradient.Stop(color: .purple, location: 0.9),
-                ]))
-            VStack(alignment: .center) {
-                Image(systemName: "globe")
-                    .padding(.bottom, 3.0)
-                    .imageScale(.large)
-                    .foregroundColor(.white)
-                Text("Hello, PlaybookSwift!")
-                    .font(.title3)
-                    .fontWeight(.semibold)
-                    .foregroundColor(.white)
+        VStack {
+            LazyVGrid(columns: [GridItem(), GridItem(), GridItem()]) {
+                ForEach(icons[0..<8], id: \.self) { emoji in
+                    CardView(icon: emoji)
+                }
             }
         }
-        .padding(.all, 30)
+        .padding(.horizontal, 15)
     }
 }
 
